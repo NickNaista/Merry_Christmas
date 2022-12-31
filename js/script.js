@@ -1,5 +1,5 @@
 "use strict"
-const audio=document.querySelector("audio");let sound="off";const soundButton=document.querySelector(".sound img");soundButton.onclick=function(){if(sound==="on"){soundButton.src="../img/bell_off.webp";sound="off";audio.pause();}else{soundButton.src="../img/bell_on.webp";sound="on";audio.play();}}
+const audio=document.querySelector("audio");let sound="off";const soundButton=document.querySelector(".sound img");soundButton.onclick=function(){if(sound==="on"){soundButton.src="img/bell_off.webp";sound="off";audio.pause();}else{soundButton.src="img/bell_on.webp";sound="on";audio.play();}}
 window.addEventListener('load',windowLoad);function windowLoad(){document.documentElement.classList.add('loaded');const page=document.querySelector('.page');const parallaxItems=document.querySelectorAll('[class*="__inset"]');const speed=0.05;let posX=0;let cXprocent=0;page.addEventListener('mousemove',parallaxAnimation);function parallaxAnimation(e){const parallaxWidth=window.innerWidth;const cX=e.pageX-parallaxWidth / 2;cXprocent=cX / parallaxWidth*100;}
 function setParallaxAnimationStyle(e){const distX=cXprocent-posX;posX=posX+(distX*speed);parallaxItems.forEach(parallaxItem=>{const value=parallaxItem.dataset.prxValue?+parallaxItem.dataset.prxValue:1;parallaxItem.style.cssText=`
     transform: translateX(${posX / value}%);
